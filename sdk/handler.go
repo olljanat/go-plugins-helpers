@@ -76,6 +76,7 @@ func (h Handler) ServeWindows(addr, pluginName, daemonDir string, pipeConfig *Wi
 	if err != nil {
 		return err
 	}
+	defer l.Close()
 	if spec != "" {
 		defer os.Remove(spec)
 	}
